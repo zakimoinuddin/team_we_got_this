@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+
+\begin{document}
+	\title{team\_we\_got\_this\\ Group Project \\ Log File\\Date:22nd of January\\Time:10:00-12:00am}
+	
+	\maketitle
+	
+	
+	{\bf\underline{Group Members Present}}\\\\
+	Zaki, Rochelle, Kim, Nur\\\\
+	
+	{\underline	{\bf Agenda}}\\
+	\begin{itemize}
+		\item Final decision on the layout of our system 
+		\item View Nur's basic simulation he has created and discuss how it we might improve and adapt it to fit our idea
+		\item discuss the information from the papers we read
+	\end{itemize}
+	
+	{\underline{\bf Discussions}}\\
+	
+	\begin{itemize}
+		\item Rochelle raised the following concern:
+		If we choose to have a roundabout it does not make sense to originally have a roundabout with traffic lights at each junction.The basic concept behind roundabouts is to have people give way to traffic. Traffic lights were predominantly introduced at roundabouts where the current give way policy became hazardous or did not effectively control the traffic flow in all directions.
+		
+		Instead Rochelle propose we initially design our roundabout without any traffic lights. Create an unequal traffic flow in one direction which jams the roundabout. Then our policy can be to introduce traffic lights to help control the follow. This will allow us to change the phase of the lights and analyse how this effects the traffic flow in all directions.  
+		
+		\item Anton would like to consider using a hexagon grid as it would allows to track where each vehicle is at each frame. We can then consider where a vehicle was before, is currently and will be in the next frame. This will help us to dictate when a car must stop in traffic or to give way to another car 
+		
+		\item Nur's basic simulation is very good starting point. At present the vehicle are not aware of other vehicles on a road and hence if they are travelling at different speed one car runs over the other.  It might be challenging to make vehicles respond to another in the simulation, i.e. would a vehicle be able to adjust its speed if there are other cars stopped ahead of it. It will also have to be adapted to randomly generate which direction the cars go in. At present the simulation has a steady flow of cars all going in one direction. Our aim is to have a vehicle destination be randomly generated or  be assigned based on a set of probabilities. 
+		
+		\item There is a brief discussion on the papers given by the lecturer. In one of the papers \cite{namekawa2005general} a model is represent as nodes and arcs. In this model nodes represent intersections and arcs represent roads. Roads can be either linear lines, cuboid lines or circles. Using this method may allow us to consider capacity on arcs and network flow. This would allow us to represent our model as a directed graph. 
+		
+		This is another avenue which should be explored. 
+		
+		\item Kim read the other paper \cite{sewall2010continuum} which discusses the use of differential equations as a way to represent the movement of vehicles in the simulation. She suggests this is another avenue to be considered. It could be useful for accurately representing time through parametric equations. \\\\
+	\end{itemize}
+	
+	
+		{\underline{\bf{Policy}}}\\
+		
+		\underline{Problem}\\\vspace{0.05cm}
+	
+		\noindent Given our current digram there is a heavy flow of traffic, say from north to south and  few cars travelling from west to break this flow. This prevents vehicle from the east entering the roundabout. \\
+		
+		\underline{Solution}\\\\
+		Introduce traffic light which we can change the phasing of so that vehicles from the east can now enter the roundabout. We can then also consider whether our traffic lights have a set time frame or if they will change based on the number of cars going through the lights. \\\\
+	
+	
+	{\underline{\bf{Action Points}\\}}
+	\begin{itemize}
+		\item It is clear that there are now 4 different ideas for representing our simulation. Several of the ideas could be merged with alterations to work together. 
+		It is also important that in the next meeting we make a final decisions as to whether our models will be discrete on continuous. 
+		
+		Next meeting we will all have to present our idea and inorder to accurately compare each, please include the following in your presentation/report
+		
+		
+		{\underline{Task for all: }}
+		\begin{itemize}
+			\item Is your model continuous or discrete?
+			\item Please briefly outline the idea behind your idea. 
+			\item Please briefly explain what language/library will be used for both the back-end and GUI(if known). 
+			\item Discuss the advantages/disadvantages of your idea and its potential limitations or difficulties. 
+			\item Please bring a separate file/folder of any code you are currently working on(if you have it) 
+		\end{itemize}
+		
+	\end{itemize}
+	
+	
+	\bibliographystyle{plain}
+	\bibliography{reference.bib}
+\end{document}
