@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+
+\begin{document}
+	\title{team\_we\_got\_this\\ Group Project \\ Log File\\Date:21st of January\\Time:10:00-12:00am}
+	
+	\maketitle
+	
+
+
+ \noindent{\bf\underline{Group Members Present}}\\\\
+		Rochelle,kim,anton,nur,zaki
+
+	\section*{Agenda}
+		\begin{itemize}
+			\item To discuss the 4 possible directions for our project and decide on a final direction
+		\end{itemize}
+	
+	\section*{Policies}
+	It is now clear that there are two different aims which different members of the group would like to achieve. Both come with their own strengths and limitations, listed below. \\
+	\begin{enumerate}
+		\item The first policy's aim is to have two lanes on both the roads leading to the roundabout and the roundabout itself. This idea would create intelligent cars which could overtake other cars moving at a slower rate than itself. This would be a more realistic model which reflects the real world. It, however would be difficult to implement on a roundabout because clear we would need to  consider on when a car should change lanes in order to exit the roundabout and implement a policy on which lane a car must be for each possible exit, i.e a car which to take the right exit would need to be in the right-hand lane on a approach to the roundabout. This could lead to a road jam if cars have to continuously stop just before the roundabout to change into the correct lane.\\
+		In the digram below the dark blue line represents a car which enter the roundabout at junction 4 in the the right lane with the aim of exiting at junction 1. However at the same time a car enters the roundabout at junction 3, in the left lane,  with the aim of also exiting at junction 1. We would need to implement when the dark blue car should change lanes and if there is a car in that position then the car will have to stop on the roundabout. This may effect the rest of the cars on the roundabout. 
+		
+			\begin{figure}[h]
+				\caption{Issues with lane changes on a two lane roundabout}
+				\includegraphics[width=0.6\textwidth]{TwoLaneRoundaboutCollisionProblems1}
+				\centering
+			\end{figure}
+			
+		\item The second policy is the same policy considered in the previous week. Given our current digram there is a heavy flow of traffic, say from north to south and  few cars travelling from west to break this flow. This prevents vehicle from the east entering the roundabout.In a real world situation this could lead to frustrated drivers entering the roundabout dangerously and causing accidents. The main issue with this policy is the difficulty in effectively representing a give way policy. The advantages of this policy is it allows us to consider different traffic management policies with the introduction of traffic lights and different phasing of the traffic lights. With this model there is more opportunity to analyse the effectiveness of our traffic simulation. 
+		
+		In the picture below the is a steady stream of moving cars from junction 1 heading exiting at any junction except junction 4. These cars are stopping any car from junction 1 trying to enter the roundabout and causes a blockage at this junction. 
+		\begin{figure}[h]
+						\caption{Blocked Roundabout}
+						\includegraphics[width=0.6\textwidth]{BlockedRoundabout}
+						\centering
+					\end{figure}
+	\end{enumerate}
+	
+	
+	\newpage
+	\section*{Miscellaneous Discussions}
+	\begin{itemize}
+		\item Anton's simulations has traffic lights which have green signals for specific directions. The cars can respond to this signal and if the light is green for cars turning left but this car wants to turn right, the car will not go.
+		This could be useful if we implemented a two lane roundabout which was dangerous because cars were frequently needing to change lanes on the roundabout. We could potentially implement to different traffic light for each lane entering the roundabout and release traffic based on the direction they wish to go in.  
+	\end{itemize}
+	\section*{Action Points}
+		\begin{itemize}
+			\item Nur,Zaki and Anton will write a report based on the question proposed in the previous meeting log. 
+			\item Nur,Zaki and Anton will put comments in their code so that others can understand it. 
+			\item the team will work together in smaller groups(outlined below) to improve or combine the two separate ideas. \\
+			Nur \& Kim- working on an equations based system 
+			Zaki, Anton \& Rochelle working on a matrix based system which tracks information in cells surrounding it. 
+		\end{itemize}
+
+	\bibliographystyle{plain}
+	\bibliography{reference}	
+	
+\end{document}
