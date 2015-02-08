@@ -1,0 +1,48 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[top=1.25in, bottom=1.25in, left=1in, right=1in]{geometry}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\title{A Graphical Representation
+}
+\begin{document}
+\begin{center}
+\LARGE{A Graphical Representation of Traffic Flow}\\
+\large{Kimberly McCarty}\\
+\large{26/01/2015}
+\end{center}
+
+\vspace{.5cm}\noindent- The model I will be discussing is of the continuous type.
+
+\vspace{.5cm}
+\noindent- My idea is to create the roads as a network of equations. In this way each vehicle on the road would have its position denoted by a set of coordinates (x,y). For example, the roads going west-east into and out of the roundabout could have the equation $y=0$. The roads going north-south into and out of the roundabout could have the equation $x=0$. The roundabout could be implemented as a circle with the equation $(x+centerX)^2+(y+centerY)^2=r^2$ for some radius, $r$. When a car moving along say the west-east road gets to the point $(-r,centerY)$ it then enters the roundabout. 
+\newline We could even to implement this as parametric equations for each x and y coordinate depending on time.
+\newline For $y=centerY$ and $x<-r$: eastbound: $x=x+speed$, westbound: $x=x-speed$
+\newline For $y=centerY$ and $x>r$: westbound: $x=x-speed$, eastbound: $x=x+speed$
+\newline For $y>r$ and $x=centerX$: southbound: $y=y-speed$, northbound: $y=y+speed$
+\newline For $y<-r$ and $x=centerX$: northbound: $y=y+speed$, southbound: $y=y-speed$
+\newline Each vehicle has an attribute $\theta$ which is set when they enter the roundabout. Entering from the east gives $\theta=0$, from the north gives $\theta=\frac{\pi}{2}$, from the west gives $\theta=\pi$, and from the south gives $\theta=\frac{3\pi}{2}$. At each increment of time the car moves along the roundabout by updating $\theta$ by $\theta=\theta-\frac{speed}{r}$ where  $speed$ is the units/time the vehicle is traveling. The parametric equations to move the vehicles around the roundabout are then:
+\newline $x=centerX+r\cos(\theta)$
+\newline $y=centerY-r\sin(\theta)$
+
+\vspace{.5cm}
+\noindent-We could probably use ActionScript 3.0 for the GUI and Java as the back end as we initially planned to do. We would need the math library.
+\vspace{.5cm}\newline PROS: 
+\newline - It will be easy to determine the position of a vehicle and which road it is on by accessing its position (x,y) 
+\newline - 
+\newline CONS:
+\newline - Would probably have to implement another equation for each lane on a road (including opposite directions)
+\newline - It would be difficult to determine if there is a vehicle in a space you want to move to.
+
+\vspace{.5cm}
+Here is an example for a circle of radius $r$ centered at $(0,0)$ with the map extending to a height $2*y_h$ and width $2*x_w$.
+
+\begin{center}
+\includegraphics[scale=.5]{sampleGraph.JPG}
+\end{center}
+
+\end{document}
