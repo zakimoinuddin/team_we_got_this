@@ -12,21 +12,29 @@
 	\maketitle
 	\thispagestyle{fancy}
 	\section{Introduction}
-	In this report we will discuss the initial progress of our group project. In first section we will discuss the design and progress of the simulation and in the latter section we will discuss how the group is organised.
+	In this report we will discuss the initial progress of our group project. In first section we will discuss the design and policies of the simulation and in the latter section we will discuss how the group is organised.
 	
 	
 	\section{Project Description}
 	
 	\subsection{Overview of our Simulation}
 	\begin{figure}
+		\begin{subfigure}{.45\textwidth}
 		\centering
-		\includegraphics[width=0.25\textwidth]{Roundabout2}
+		\includegraphics[width=0.5\textwidth]{Roundabout2}
 		\caption{Our roundabout design}
-		\label{Roundabout Design}
-	
+		\label{RoundaboutDesign}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+		\centering
+		\includegraphics[width=0.5\textwidth]{SteadyFlow}
+		\caption{Image of our blocked roundabout}
+		\label{Steadyflow}
+		\end{subfigure}
 	\end{figure}
-	Our group proposes to build a four junction roundabout with multiple lanes (see figure \ref{Roundabout Design}) and to introduce policies and road layouts loosely based around existing roundabouts in London. Originally our design included traffic lights but within two weeks we had working traffic lights on our test simulation. Hence, it was decided that it would more challenging to build a roundabout without traffic lights, as our cars would then need to be intelligent enough to know when to give way to other cars already on the roundabout. We aim to also allow users to change the probability of cars coming from each junction, entering the roundabout, to allow users to accurately measure real life scenarios. For example, if there was a heavy flow of cars from one junction, this will stop cars from the junction to the left of it entering the roundabout as they will have to give way.\textcolor{red}{If there is space show this in a picture}
+	Our group proposes to build a four junction roundabout with multiple lanes (see figure \ref{Roundabout Design}) and to introduce policies and road layouts loosely based around existing roundabouts in London. Originally our design included traffic lights but within two weeks we had working traffic lights on our test simulation. Hence, it was decided that it would more challenging to build a roundabout without traffic lights, as our cars would then need to be intelligent enough to know when to give way to other cars already on the roundabout. We aim to also allow users to change the probability of cars coming from each junction, entering the roundabout, to allow users to accurately measure real life scenarios. For example, if there was a heavy flow of cars from one junction, this will stop cars from the junction to the left of it entering the roundabout as they will have to give way (see figure \ref{Steadyflow})
 	
+	\pagebreak
 	If we could succeed in implementing the give way policy we would then create our own scenario, introduce
 	traffic lights to analyse network flow and policies to improve this flow. We will then analyse how many cars enter the roundabout from each junction per minute. Our system would give users control of the time duration of the lights so that we could allow lights to be green for a longer duration at junction where the traffic flow is heavy. As an optional attribute to our system we would like to implement traffic lights which are dynamic and will change colour based on the number of cars passing through instead of time elapsed. \\
 	
