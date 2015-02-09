@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage{fancyhdr, graphicx, xcolor}
+\usepackage{fancyhdr, graphicx, xcolor, caption, subcaption}
 \usepackage{wrapfig}
 \usepackage[section]{placeins}
 \renewcommand{\headrulewidth}{0pt}
@@ -34,41 +34,42 @@
 		16/02/15 & Multi-lane roundabout & Pending \\ \hline
 		
 	\end{tabular}
-	\subsection{Design Approach 1:Cellular Automation}
+	\subsection{Design Approach 1: Using a Matrix}
 	As a group there were several different approaches that we thought were viable, hence we decided to explore each option.
+	
 	The first option we trialled was building our system in Action script built on a hexagon matrix. In this model we used coordinates to track the position of cars on the matrix as this would allow us to prevent collisions. We used a hexagon matrix as we though it would better suit the shape of the roundabout, however in the trial of the model we decided a hexagon grid was an unnecessary complication. 
 	
-	\noindent {\bf Anton's Model}
-	\begin{itemize}
-
-		\item pros of Anton's model: Anton was the first to have a traffic light which had green for different directions and have cars which could respond to this, i.e. if a light was green for straight ahead only and the car at the light wanted to turn left, the car would not go. The cars could not respond to other cars on the road and hence if a car was travelling at a faster speed than the car in front of it, it would go through it. 
-	\end{itemize}
+	In this model we have traffic lights which have a green signal for different directions and have cars which can respond to this, i.e. if a light was green for straight ahead only and the car at the light wanted to turn left, the car would not go. The cars could not respond to other cars on the road and hence if a car was travelling at a faster speed than the car in front of it, it would go through it.
+	
+	The second option is based on a cell automation model \cite{namekawa2005general}. In this model each cell of a matrix is given attributes and properties. The attributes will include the width, height, type of cell whilst the properties will give information on whether the cell is occupied by a vehicle. The most important feature we will include in each cell is information on its neighbouring cell so that cars can make dynamic decisions about where they will go in the next tick on the simulation.
 	
 	
-	\noindent{\bf Zaki's model:}
-	\begin{itemize}
-		\item Explan where celluar automation came from
-		\item Explain how we would use it
-	\end{itemize}
 	\subsection{Design Approach 2: Using Equations}
 	
-	{\bf Nur's Model:}\\\\
-	This model was the first working model the group created. It is built by recolouring pixels every 30 milliseconds to show movement of the cars across the map. 
+    The third model was the first working simulation the group created. It is built by recolouring pixels every 30 milliseconds to show movement of the cars across the map. 
 	
-	%
-	%%\begin{figure}{H}
-	%	\begin{center}
-	%\includegraphics[width=0.50\textwidth]{ScreenShotNurSim.pdf}
-	%\center{A screen-shot of our first simulation}
-	%\end{center}
-	%
-	%%\end{figure}
-	\FloatBarrier
-	\begin{figure}[h]
+%	\FloatBarrier
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=0.45\textwidth]{ScreenShotNurSim}
+%		\caption{Screenshot of our first working model}
+%		
+%	\end{figure}
+
+\FloatBarrier
+	\begin{figure}
+	
 		\centering
-		\includegraphics[width=0.45\textwidth]{ScreenShotNurSim}
-		\caption{Screenshot of our first working model}
-		
+		\begin{subfigure}{.4\textwidth}
+			\centering
+		\includegraphics[width=0.5\textwidth]{ScreenShotNurSim}
+		\caption{Screenshot of  our model }
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\centering
+			\includegraphics[width=0.4\textwidth]{KimsModel}
+			\caption{Sample graph for Our Continuous Model}
+			\end{subfigure}
 	\end{figure}
 	
 	We had this working model very quickly and a clear understanding of how we could adapt to fit the needs of our roundabout but we questions whether it would be dynamic enough to adapt to our growing plans. In this system the map is on a coordinate system and a car travelling at say $30 m/s$ from west to east would increase its x-coordinate by 30 in the next time frame and similarly for other movements. However this would suit our current simple crossroad but as our system developed in to a multi-lane roundabout this naive approach would begin to hold us back.
@@ -102,5 +103,8 @@
 		\item In the beginning we had issue with the meetings slots as this is still on going. We try to compromise on smaller issue and then just vote on any large issue.  
 		
 	\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{references.bib}
 	
 \end{document}
