@@ -1,0 +1,94 @@
+\documentclass[]{article}
+
+%opening
+\title{Requirement Specification Document}
+\author{team\_we\_got\_this}
+
+\begin{document}
+
+\maketitle
+
+
+\section*{Requirement Engineering}
+Requirements Engineering is an important part of software development lifecycle which includes such activities as requirements elicitation (collecting requirements from current users by talking to them and collecting information about workflows in an organisation), identification of new requirements, analysis (checking requirements to be realistic and also that they truly reflect customer’s needs and wants) and creating a requirements specification: a document which gathers all the requirements and is usually signed by the client so that in the end the system can be checked against the document to make sure everything that has to be there is there. Some other processes are requirements validation to make sure they stay up-to-date and continue meeting shareholders’ needs as the time of development progresses, and requirements management – i.e. techniques of how to introduce changes in requirements. As we use the waterfall model, we will perform listed activities and the outcome of this will be the requirements document. 
+
+\section*{Requirements Elicitation}
+
+The following initial requirements come from the Introductory Lecture Slides:\\\\
+Meta-requirements:
+\begin{itemize}
+
+\item Development must be coordinated through github repository.
+\item The source code can be written in any language.
+\item Documentation must be provided in Latex format and exported as PDF.
+\item Unit testing of high quality and coverage should be performed.
+\item Code documentation and comments for methods and variables should be provided.
+\item Work should be critically evaluated to highlight encountered problems and also parts of the project that worked well.
+\end{itemize}
+
+System Requirements:
+\begin{enumerate}
+
+\item The system must simulate individual vehicles such as cars, coaches and buses.
+\item The road network must have different parts including roundabouts and multi-lane junctions. 
+\item The network must have place where vehicles enter and where they leave.
+\item The model should be able to simulate individual behaviour of drivers, e.g. reckless, cautious and normal. 
+\item The system should be able to time each car’s journey to present efficiency statistics according to purpose and patterns of use. 
+\item The simulation might support emergency services such as ambulance to give them priority at traffic lights.
+\item The model should be able to make use of different policies and test their effectiveness and report on their success or failure rates using a particular measure (e.g. average speed, congestion rate).
+\item The engine should have a particular state which depends on how long the simulation has run for and a time granularity constant (macroscopic or microscopic) must be chosen which indicates on how often the state is updated, with vehicles changing their position and new cars being created, old cars being removed.  
+\item Users should have the ability to configure their own maps of an arbitrary scale. 
+\item A GUI or command line should be used to visualise maps and simulations.
+After considering the available requirements, our team decided to go ahead and implement a number of ideas of how such requirements can be modelled. We came up with 3 main ideas:
+\begin{enumerate}
+
+\item state automaton or discrete
+[screenshot] [brief description]
+\item continuous or formula-based
+[screenshot] [brief description]
+\item network-flow model
+[screenshot] [brief description]
+\end{enumerate}
+\end{enumerate}
+
+We have chosen to go on and implement the state automaton model, therefore new requirements which are more precise than elicited ones has to be drawn from requirements identification based on the prototypes developed. Also, non-functional requirements are presented there. 
+
+\section*{Non-functional Requirements}
+\textbf{Reporting:} the system should report on results of a run simulation according to a number of factors, which are: how conjectured the roads were (percentages of road cells occupied by cars to empty road cells) and how long it took cars to get from A to B (in respect to the minimum time it would have taken them without any other cars).\\
+
+\noindent
+\textbf{Performance / response time:} the simulation should run without lag on a regular University computer (e.g. in MSc lab 534), i.e. 64-bit Inter Core2 Quad CPU @ 2.5GHz for a medium-size simulation. However, when the complexity increases to more than 500x500 cells and 250 cars, the system is allowed to show a reasonable decrease in performance. With 1000x1000 cells and 500 cars, system is not guaranteed to continue responding to user input or show feedback on its state.\\
+
+\noindent
+\textbf{Testability:} the code for the project must be written by programmers with a fact in mind that it will have to be tested using a unit test framework. For example, in case of Java, the unit-testing framework would be JUnit. Test might be written beforehand to promote test-driven development, but it is not compulsory. On the other hand, it is required that every method has a corresponding test code written for it to make sure it works correctly in a variety of situations, such as boundary and corner conditions, therefore edge-cases must be tested.\\
+
+\noindent 
+\textbf{Usability:} it must be easy for users to understand how to use the simulation capabilities. Jakob Nielsen's 10 general principles for interaction design [ref: http://www.nngroup.com/articles/ten-usability-heuristics/] should be considered and applied for implementation of user interface, for example there should be a match between the system and real world so users understand the analogy, that means that cars in the simulation should look like cars and the designs for road and roundabouts must be as realistic as possible. Also, help should be provided for users with explanations of how to use the simulation engine. A heuristic testing for all the 10 principles must be performed in the end of the UI’s development life-cycle by an expert. \\
+
+\noindent 
+\textbf{Portability: }the system should be able to run on a computer with JVM installed (thus ensuring that the program can be started on any device which supports Java), or as an applet on a web-page. \\
+
+\noindent
+\textbf{Maintainability:} the code should make use of interfaces and appropriate design patterns to make sure that all programmers can understand it and make required changes (refactor it) easily.\\
+
+\noindent 
+\textbf{Extensibility:} it should be possible to introduce new features into the system without having to restructure the engine’s core if additional requirements emerge. For example an appropriate level of abstraction should be used to ensure that a cyclist lane occupied by cyclists, taxis, buses and motorbikes can be incorporated into the system and the later stages of development.\\
+
+\noindent
+\textbf{Documentation:} every public method must be documented in the source code in Javadoc-style, including the purpose of the function, description of each parameter and return value, as well as clarification of exceptions, using @param, @return, @throws tags. @author and @version tags must be specified for each class. Documentation of a private method is encouraged when it can help other people working on the project to understand its purpose. Finally, UML diagrams (use-case, class and sequence at least) must be created in the design stage to make sure the principles of overall model are clearly conveyed to shareholders and also team of developers.  
+
+\section*{Functional Requirements: map designer}
+\begin{enumerate}
+\item Users should be able to create a new blank map by specifying its width and height in cells. 
+\item Users should be capable to click on each cell and choose whether it is empty or a road.
+\begin{enumerate}
+	\item If a cell is a road, users should be able to specify in which direction it is going (NORTH, EAST, SOUTH or WEST).
+\item If a cell is a road, users should have an option to make it an entry node or an exit node.
+\item If a cell is a road, users can place a traffic light on it, or remove existing traffic light from it. 
+\end{enumerate}
+\item A map can be saved to a file with .map extension, which contains binary data of serialised grid object.
+\item Users can load a map saved earlier by choosing a file \item  Users should be able to erase all objects from the map (i.e. to start over). 
+\item Map builder should be programmed in ActionScript 3. 
+[Screenshot of a blank map, and map with road, cars and traffic lights on it]
+\end{enumerate}
+\end{document}
